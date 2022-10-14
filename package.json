@@ -16,6 +16,7 @@
     "bootstrap": "^5.2.2",
     "bootswatch": "^5.2.1",
     "classnames": "^2.3.2",
+    "convert-units": "^2.3.4",
     "core-js": "^3.25.4",
     "formik": "^2.2.9",
     "lodash-es": "^4.17.21",
@@ -24,8 +25,10 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.4.1",
-    "reselect": "^4.1.6"
+    "reselect": "^4.1.6",
+    "use-local-storage-state": "^17.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
