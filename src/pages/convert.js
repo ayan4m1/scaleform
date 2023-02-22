@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import convert from 'convert-units';
 import { useFormik } from 'formik';
 import { uniqueId } from 'lodash-es';
@@ -85,79 +86,86 @@ export default function Convert() {
 
   return (
     <Layout title="Convert">
-      <h1 className="mt-2">Convert Units</h1>
-      <Card bg="light" className="my-2">
-        <Card.Body className="d-flex align-items-baseline">
-          <h5 className="me-2">Scale</h5>
-          <Form>
-            <InputGroup>
-              <InputGroup.Text>1 :</InputGroup.Text>
-              <Form.Control
-                type="number"
-                onChange={onChangeDenominator}
-                defaultValue={denominator}
-                style={{ textAlign: 'right', width: 75 }}
-              />
-            </InputGroup>
-          </Form>
-        </Card.Body>
-      </Card>
-      <Card className="my-2">
-        <Card.Body>
-          <Form onSubmit={handleSubmit}>
-            <Row>
-              <Col xs={8} sm={9} lg={10}>
+      <h1 className="mt-2">Convert</h1>
+      <span>
+        Specify a scale, then enter one or more expressions. Each expression
+        will be scaled appropriately. If you enter an expression such as
+        &quot;100 mm in ft,&quot; the scaled value will be converted into the
+        target unit.
+      </span>
+      <Card body className="my-2">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group as={Row} className="mb-2">
+            <Form.Label column sm={2} htmlFor="denominator">
+              Scale
+            </Form.Label>
+            <Col sm={10}>
+              <InputGroup style={{ width: 125 }}>
+                <InputGroup.Text>1 :</InputGroup.Text>
                 <Form.Control
-                  type="text"
-                  name="conversion"
-                  placeholder="Enter expression"
-                  onChange={handleChange}
-                  value={values.conversion}
-                  isInvalid={Boolean(errors.conversion)}
+                  id="denominator"
+                  type="number"
+                  onChange={onChangeDenominator}
+                  defaultValue={denominator}
+                  style={{ textAlign: 'right' }}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.conversion}
-                </Form.Control.Feedback>
-              </Col>
-              <Col xs={4} sm={3} lg={2} className="d-flex justify-content-end">
-                <Button type="submit" variant="success">
-                  Convert
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-        </Card.Body>
+              </InputGroup>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-2">
+            <Form.Label column sm={2} htmlFor="conversion">
+              Expression
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                id="conversion"
+                type="text"
+                name="conversion"
+                placeholder='"100 mm", "10 m in ft"'
+                onChange={handleChange}
+                value={values.conversion}
+                isInvalid={Boolean(errors.conversion)}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.conversion}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <Form.Group className="d-flex justify-content-end">
+            <Button type="submit" variant="success">
+              Convert
+            </Button>
+          </Form.Group>
+        </Form>
       </Card>
-      <Card className="my-2">
-        <Card.Body>
-          <Card.Title>
-            <Row>
-              <Col xs={8}>History</Col>
-              <Col xs={4} className="d-flex justify-content-end">
-                <Button variant="danger" onClick={clearEntries}>
-                  Clear
-                </Button>
-              </Col>
-            </Row>
-          </Card.Title>
+      <Card body className="my-2">
+        <Card.Title>
           <Row>
-            {entries.length ? (
-              entries.map((entry) => (
-                <Col xs={12} key={entry.id}>
-                  <span>
-                    {entry.value} {entry.unit}
-                  </span>
-                  <FontAwesomeIcon icon={faArrowRightLong} className="mx-3" />
-                  <span>
-                    {entry.result.toFixed(2)} {entry.targetUnit}
-                  </span>
-                </Col>
-              ))
-            ) : (
-              <Col xs={12}>No entries.</Col>
-            )}
+            <Col xs={8}>History</Col>
+            <Col xs={4} className="d-flex justify-content-end">
+              <Button variant="danger" onClick={clearEntries}>
+                Clear
+              </Button>
+            </Col>
           </Row>
-        </Card.Body>
+        </Card.Title>
+        <Row>
+          {entries.length ? (
+            entries.map((entry) => (
+              <Col xs={12} key={entry.id}>
+                <span>
+                  {entry.value} {entry.unit}
+                </span>
+                <FontAwesomeIcon icon={faArrowRightLong} className="mx-3" />
+                <span>
+                  {entry.result.toFixed(2)} {entry.targetUnit}
+                </span>
+              </Col>
+            ))
+          ) : (
+            <Col xs={12}>No entries.</Col>
+          )}
+        </Row>
       </Card>
     </Layout>
   );
