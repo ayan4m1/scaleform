@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
-import convert from 'convert-units';
 import { useFormik } from 'formik';
 import { uniqueId } from 'lodash-es';
 import { Card, Row, Col, Form, Button, InputGroup } from 'react-bootstrap';
@@ -9,6 +7,7 @@ import { useHistory } from 'hooks/useHistory';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import Layout from 'components/Layout';
+import { convert } from 'utils/units';
 
 const convertRegex = /([\d.-]+)\s+(\w+)\s+in\s+(\w+)/;
 

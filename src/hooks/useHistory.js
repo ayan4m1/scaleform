@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
-import convert from 'convert-units';
 import { useCallback } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
+import { convert } from 'utils/units';
 
 const calculate = (entry, denominator) => ({
   ...entry,
