@@ -83,7 +83,8 @@ export default {
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'main.js',
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js',
+    publicPath: '/scaleform'
   },
   plugins,
   resolve: {
