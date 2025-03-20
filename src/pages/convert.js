@@ -6,10 +6,11 @@ import { useDebounce } from 'hooks/useDebounce';
 import { useHistory } from 'hooks/useHistory';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+
 import Layout from 'components/Layout';
 import { convert } from 'utils/units';
 
-const convertRegex = /([\d.-]+)\s+(\w+)\s+in\s+(\w+)/;
+const convertRegex = /([\d.-]+)\s+(\w+)\s+in\s+(\w+)/i;
 
 export default function Convert() {
   const { entries, denominator, pushEntry, clearEntries, updateDenominator } =
@@ -87,9 +88,9 @@ export default function Convert() {
     <Layout title="Convert">
       <h1 className="mt-2">Convert</h1>
       <span>
-        Specify a scale, then enter one or more expressions. Each expression
-        will be scaled appropriately. If you enter an expression such as
-        &quot;100 mm in ft,&quot; the scaled value will be converted into the
+        Specify a scale factor, then enter one or more expressions. Each
+        expression will be scaled appropriately. If you enter an expression such
+        as &quot;100 mm in ft,&quot; the scaled value will be converted into the
         target unit.
       </span>
       <Card body className="my-2">
@@ -111,7 +112,7 @@ export default function Convert() {
               </InputGroup>
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-2">
+          <Form.Group as={Row}>
             <Form.Label column htmlFor="conversion" sm={2}>
               Expression
             </Form.Label>
@@ -130,7 +131,7 @@ export default function Convert() {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
-          <Form.Group className="d-flex justify-content-end">
+          <Form.Group className="mt-2 d-flex justify-content-end">
             <Button type="submit" variant="success">
               Convert
             </Button>
