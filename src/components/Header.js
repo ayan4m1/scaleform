@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { faRightLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+  faRightLeft,
+  faRulerHorizontal
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Header() {
@@ -11,8 +14,11 @@ export default function Header() {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/convert">
+            <Nav.Link as={Link} to="/">
               <FontAwesomeIcon icon={faRightLeft} /> Convert
+            </Nav.Link>
+            <Nav.Link as={Link} to="/measure">
+              <FontAwesomeIcon icon={faRulerHorizontal} /> Measure
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
