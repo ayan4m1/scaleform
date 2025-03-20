@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { faRightLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (

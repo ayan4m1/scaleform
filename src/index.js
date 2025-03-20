@@ -1,13 +1,15 @@
 import { createRoot } from 'react-dom/client';
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './index.scss';
-import App from './components/App';
+import Convert from 'pages/convert';
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <Router>
-    <App />
+    <Routes>
+      <Route Component={Convert} index />
+    </Routes>
   </Router>
 );
