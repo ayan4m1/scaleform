@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg">
+    <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>Scaleform</Navbar.Brand>
         <Navbar.Toggle />

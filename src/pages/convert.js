@@ -95,35 +95,35 @@ export default function Convert() {
       <Card body className="my-2">
         <Form onSubmit={handleSubmit}>
           <Form.Group as={Row} className="mb-2">
-            <Form.Label column sm={2} htmlFor="denominator">
+            <Form.Label column htmlFor="denominator" sm={2}>
               Scale
             </Form.Label>
             <Col sm={10}>
               <InputGroup style={{ width: 125 }}>
                 <InputGroup.Text>1 :</InputGroup.Text>
                 <Form.Control
-                  id="denominator"
-                  type="number"
-                  onChange={onChangeDenominator}
                   defaultValue={denominator}
+                  id="denominator"
+                  onChange={onChangeDenominator}
                   style={{ textAlign: 'right' }}
+                  type="number"
                 />
               </InputGroup>
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-2">
-            <Form.Label column sm={2} htmlFor="conversion">
+            <Form.Label column htmlFor="conversion" sm={2}>
               Expression
             </Form.Label>
             <Col sm={10}>
               <Form.Control
                 id="conversion"
-                type="text"
-                name="conversion"
-                placeholder='"100 mm", "10 m in ft"'
-                onChange={handleChange}
-                value={values.conversion}
                 isInvalid={Boolean(errors.conversion)}
+                name="conversion"
+                onChange={handleChange}
+                placeholder='"100 mm", "10 m in ft"'
+                type="text"
+                value={values.conversion}
               />
               <Form.Control.Feedback type="invalid">
                 {errors.conversion}
@@ -141,8 +141,8 @@ export default function Convert() {
         <Card.Title>
           <Row>
             <Col xs={8}>History</Col>
-            <Col xs={4} className="d-flex justify-content-end">
-              <Button variant="danger" onClick={clearEntries}>
+            <Col className="d-flex justify-content-end" xs={4}>
+              <Button onClick={clearEntries} variant="danger">
                 Clear
               </Button>
             </Col>
@@ -151,11 +151,11 @@ export default function Convert() {
         <Row>
           {entries.length ? (
             entries.map((entry) => (
-              <Col xs={12} key={entry.id}>
+              <Col key={entry.id} xs={12}>
                 <span>
                   {entry.value} {entry.unit}
                 </span>
-                <FontAwesomeIcon icon={faArrowRightLong} className="mx-3" />
+                <FontAwesomeIcon className="mx-3" icon={faArrowRightLong} />
                 <span>
                   {entry.result.toFixed(2)} {entry.targetUnit}
                 </span>

@@ -7,7 +7,6 @@ const imperial = {
       singular: 'Mil',
       plural: 'Mils'
     },
-    // eslint-disable-next-line camelcase
     to_anchor: 1 / 12000
   }
 };

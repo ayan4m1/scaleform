@@ -7,9 +7,9 @@ import Measure from 'pages/measure';
 export default function App() {
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="/convert" element={<Convert />} />
-      <Route path="/measure" element={<Measure />} />
+      <Route Component={Home} index />
+      <Route Component={Convert} path="/convert" />
+      <Route Component={Measure} path="/measure" />
     </Routes>
   );
 }

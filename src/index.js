@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import './index.scss';
 import App from './components/App';
@@ -7,7 +7,7 @@ import App from './components/App';
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  <Router basename="/scaleform">
+  <Router>
     <App />
   </Router>
 );
