@@ -19,15 +19,32 @@ export default function Measure() {
       const result = {};
 
       const { actualSize, desiredSize } = values;
+      const lengthUnits = convert().possibilities();
       const actualMatches = actualSize.match(convertRegex);
       const desiredMatches = desiredSize.match(convertRegex);
 
       if (!actualMatches) {
         result.actualSize = 'Missing value or unit';
+      } else {
+        const [, actualVal, actualUnit] = actualMatches;
+
+        if (isNaN(parseFloat(actualVal))) {
+          result.actualSize = 'Value must be a number';
+        } else if (!lengthUnits.includes(actualUnit.toLocaleLowerCase())) {
+          result.actualSize = `Unrecognized unit ${actualUnit}`;
+        }
       }
 
       if (!desiredMatches) {
         result.desiredSize = 'Missing value or unit';
+      } else {
+        const [, desiredVal, desiredUnit] = desiredMatches;
+
+        if (isNaN(parseFloat(desiredVal))) {
+          result.desiredSize = 'Value must be a number';
+        } else if (!lengthUnits.includes(desiredUnit.toLocaleLowerCase())) {
+          result.desiredSize = `Unrecognized unit ${desiredUnit}`;
+        }
       }
 
       return result;
