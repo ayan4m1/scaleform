@@ -26,7 +26,7 @@ const plugins = [
   new ESLintPlugin(),
   new MiniCssExtractPlugin(),
   new CnameWebpackPlugin({
-    domain: 'scaleform.xyz'
+    domain: 'scaleform.andrewdelisa.com'
   })
 ];
 
@@ -90,8 +90,7 @@ export default {
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'main.js',
-    chunkFilename: '[name].js',
-    publicPath: '/scaleform'
+    chunkFilename: '[name].js'
   },
   plugins,
   resolve: {
