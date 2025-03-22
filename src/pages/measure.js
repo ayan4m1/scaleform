@@ -77,7 +77,7 @@ export default function Measure() {
             </Form.Label>
             <Col sm={10}>
               <Form.Control
-                isInvalid={errors.actualSize}
+                isInvalid={Boolean(errors.actualSize)}
                 isValid={touched.actualSize && !errors.actualSize}
                 name="actualSize"
                 onChange={handleChange}
@@ -97,7 +97,7 @@ export default function Measure() {
             </Form.Label>
             <Col sm={10}>
               <Form.Control
-                isInvalid={errors.desiredSize}
+                isInvalid={Boolean(errors.desiredSize)}
                 isValid={touched.desiredSize && !errors.desiredSize}
                 name="desiredSize"
                 onChange={handleChange}

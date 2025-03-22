@@ -126,9 +126,11 @@ export default function Convert() {
                 type="text"
                 value={values.conversion}
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.conversion}
-              </Form.Control.Feedback>
+              {Boolean(errors.conversion) && (
+                <Form.Control.Feedback type="invalid">
+                  {errors.conversion}
+                </Form.Control.Feedback>
+              )}
             </Col>
           </Form.Group>
           <Form.Group className="mt-2 d-flex justify-content-end">
