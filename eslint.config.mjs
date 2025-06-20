@@ -27,7 +27,13 @@ export default [
       ...reactHooksPlugin.configs.recommended.rules,
       'react/jsx-uses-react': 0,
       'react/jsx-sort-props': 2,
-      'react/react-in-jsx-scope': 0
+      'react/react-in-jsx-scope': 0,
+      'import-x/no-unresolved': [
+        'error',
+        {
+          caseSensitive: false
+        }
+      ]
     },
     settings: {
       react: {

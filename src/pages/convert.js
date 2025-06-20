@@ -1,12 +1,11 @@
 import { useFormik } from 'formik';
 import { uniqueId } from 'lodash-es';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { Card, Row, Col, Form, Button, InputGroup } from 'react-bootstrap';
 
 import { useDebounce } from 'hooks/useDebounce';
 import { useHistory } from 'hooks/useHistory';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
-
 import Layout from 'components/Layout';
 import { convert } from 'utils/units';
 
