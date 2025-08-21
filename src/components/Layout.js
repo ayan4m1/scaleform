@@ -7,7 +7,9 @@ import Header from 'components/Header';
 export default function Layout({ title = 'Page', children }) {
   return (
     <Fragment>
-      <title>Scaleform - {title}</title>
+      <head>
+        <title>Scaleform - {title}</title>
+      </head>
       <Header />
       <Container>{children}</Container>
     </Fragment>
