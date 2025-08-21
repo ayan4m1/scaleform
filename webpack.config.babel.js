@@ -105,5 +105,6 @@ export default {
   },
   optimization: {
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
-  }
+  },
+  ignoreWarnings: [/@import rules/]
 };
