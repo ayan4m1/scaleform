@@ -9,6 +9,11 @@
     "start": "cross-env NODE_ENV=development webpack serve",
     "prepare": "husky"
   },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.28.3",
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
