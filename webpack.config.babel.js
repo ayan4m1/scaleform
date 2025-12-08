@@ -41,7 +41,7 @@ export default {
     open: true,
     historyApiFallback: true,
     hot: dev,
-    port: 9000
+    port: 8080
   },
   module: {
     rules: [
